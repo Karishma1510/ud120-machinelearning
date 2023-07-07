@@ -26,7 +26,7 @@ from tester import dump_classifier_and_data
 # 'other', 'long_term_incentive', 'restricted_stock', 'director_fees','to_messages', 
 # 'from_poi_to_this_person', 'from_messages', 'from_this_person_to_poi', 'shared_receipt_with_poi', 'fraction_to_poi', 'fraction_from_poi'] 
 
-features_list = ['poi', 'exercised_stock_options', 'bonus', "fraction_to_poi", "loan_advances" ,]
+features_list = ['poi', 'exercised_stock_options', 'bonus', "fraction_to_poi", "loan_advances"]
 
 ### Load the dictionary containing the dataset
 with open("final_project_dataset.pkl", "rb") as data_file:
@@ -95,6 +95,8 @@ from sklearn import preprocessing
 scaler = preprocessing.MinMaxScaler().fit(features)
 features_transformed = scaler.transform(features)
 
+
+
 # Calculate chi2 for feature importance
 chi2_res = chi2(features_transformed, labels)
 # {
@@ -155,7 +157,7 @@ print(tree_clf.best_params_)
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score
 
-clf = KNeighborsClassifier(n_neighbors=3, algorithm='auto').fit(features_train,labels_train)
+clf = GaussianNB().fit(features_train,labels_train)
 pred = clf.predict(features_test)
 print(accuracy_score(labels_test,pred), precision_score(labels_test, pred), recall_score(labels_test, pred))
 

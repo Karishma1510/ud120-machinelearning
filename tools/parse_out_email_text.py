@@ -19,28 +19,40 @@ def parseOutText(f):
 
     f.seek(0)  ### go back to beginning of file (annoying)
     all_text = f.read()
+    print(all_text)
 
     ### split off metadata
     content = all_text.split("X-FileName:")
     words = ""
-    if len(content) > 1:
+    if len(content) > 1:                                        
         ### remove punctuation
         text_string = content[1].translate(str.maketrans('','',string.punctuation))
 
         ### project part 2: comment out the line below
-        words = text_string
+        # words = text_string
 
 
 
         ### split the text string into individual words, stem each word,
         ### and append the stemmed word to words (make sure there's a single
         ### space between each stemmed word)
+       
+        split_text = text_string.split()
+       
+        stemmer = SnowballStemmer("english")
+        words = []
+        for word in split_text:
+            words.append(stemmer.stem(word))
+        
+        words = " ".join(words)
+            
+
 
 
 
     return words
 
-    
+  
 
 def main():
     ff = open("../text_learning/test_email.txt", "r")

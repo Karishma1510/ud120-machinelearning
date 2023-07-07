@@ -30,7 +30,48 @@ plt.show()
 
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+clf = DecisionTreeClassifier()
+clf = clf.fit(features_train,labels_train)
+pred = clf.predict(features_test)
+acc = accuracy_score(labels_test,pred)
+print(acc)
 
+from sklearn.svm import SVC
+clf = SVC(kernel="rbf")
+clf = clf.fit(features_train,labels_train)
+pred = clf.predict(features_test)
+acc = accuracy_score(labels_test,pred)
+print(acc)
+
+from sklearn.naive_bayes import GaussianNB
+clf = GaussianNB()
+clf = clf.fit(features_train,labels_train)
+pred = clf.predict(features_test)
+acc = accuracy_score(labels_test,pred)
+print(acc)
+
+from sklearn.neighbors import NearestCentroid
+clf = NearestCentroid()
+clf  = clf.fit(features_train,labels_train)
+pred = clf.predict(features_test)
+acc = accuracy_score(labels_test,pred)
+print(acc)
+
+from sklearn.neighbors import RadiusNeighborsClassifier
+clf = RadiusNeighborsClassifier()
+clf = clf.fit(features_train,labels_train)
+pred = clf.predict(features_test)
+acc = accuracy_score(labels_test,pred)
+print(acc)
+
+from sklearn.ensemble import AdaBoostClassifier
+clf = AdaBoostClassifier()
+clf = clf.fit(features_train,labels_train)
+pred = clf.predict(features_test)
+acc = accuracy_score(labels_test,pred)
+print(acc)
 
 
 

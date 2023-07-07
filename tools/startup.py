@@ -29,13 +29,13 @@ print("To check on progress, you can cd up one level, then execute <ls -lthr>")
 print("Enron dataset should be last item on the list, along with its current size")
 print("Download will complete at about 1.82 GB")
 
-import requests
-url = "https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tar.gz"
-filename = "../enron_mail_20150507.tar.gz"
-with open(filename, "wb") as f:
-    r = requests.get(url)
-    f.write(r.content)
-print("Download Complete!")
+# import requests
+# url = "https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tar.gz"
+# filename = "../enron_mail_20150507.tar.gz"
+# with open(filename, "wb") as f:
+#     r = requests.get(url)
+#     f.write(r.content)
+# print("Download Complete!")
 
 print("Unzipping Enron dataset (This may take a while)")
 import tarfile
